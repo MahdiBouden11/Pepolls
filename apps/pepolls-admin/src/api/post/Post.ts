@@ -3,6 +3,7 @@ import { User } from "../user/User";
 
 export type Post = {
   comments?: Array<Comment>;
+  content: string | null;
   createdAt: Date;
   dislikes: number | null;
   id: string;

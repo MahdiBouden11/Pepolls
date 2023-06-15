@@ -31,6 +31,7 @@ model User {
 
 model Post {
   comments       Comment[]
+  content        String?
   createdAt      DateTime  @default(now())
   dislikes       Int?
   id             String    @id @default(auto()) @map("_id") @mongo.ObjectId
