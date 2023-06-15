@@ -19,8 +19,9 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import * as nestAccessControl from "nest-access-control";
 import * as defaultAuthGuard from "../../auth/defaultAuth.guard";
 import { UserService } from "../user.service";
-import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { UserCreateInput } from "./UserCreateInput";
 import { UserWhereInput } from "./UserWhereInput";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
@@ -41,14 +42,9 @@ export class UserControllerBase {
     protected readonly service: UserService,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
-  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @Public()
   @common.Post()
   @swagger.ApiCreatedResponse({ type: User })
-  @nestAccessControl.UseRoles({
-    resource: "User",
-    action: "create",
-    possession: "any",
-  })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
@@ -558,6 +554,7 @@ export class UserControllerBase {
     const results = await this.service.findPosts(params.id, {
       ...query,
       select: {
+        content: true,
         createdAt: true,
         dislikes: true,
         id: true,
@@ -669,6 +666,7 @@ export class UserControllerBase {
     const results = await this.service.findSharedPosts(params.id, {
       ...query,
       select: {
+        content: true,
         createdAt: true,
         dislikes: true,
         id: true,

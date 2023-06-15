@@ -4,8 +4,8 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
   ReferenceField,
   ReferenceManyField,
   Datagrid,
@@ -18,6 +18,7 @@ export const PostShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
+        <TextField label="content" source="content" />
         <DateField source="createdAt" label="Created At" />
         <TextField label="dislikes" source="dislikes" />
         <TextField label="ID" source="id" />

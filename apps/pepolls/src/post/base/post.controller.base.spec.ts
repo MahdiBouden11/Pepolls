@@ -19,6 +19,7 @@ import { PostService } from "../post.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  content: "exampleContent",
   createdAt: new Date(),
   dislikes: 42,
   id: "exampleId",
@@ -27,6 +28,7 @@ const CREATE_INPUT = {
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
+  content: "exampleContent",
   createdAt: new Date(),
   dislikes: 42,
   id: "exampleId",
@@ -36,6 +38,7 @@ const CREATE_RESULT = {
 };
 const FIND_MANY_RESULT = [
   {
+    content: "exampleContent",
     createdAt: new Date(),
     dislikes: 42,
     id: "exampleId",
@@ -45,6 +48,7 @@ const FIND_MANY_RESULT = [
   },
 ];
 const FIND_ONE_RESULT = {
+  content: "exampleContent",
   createdAt: new Date(),
   dislikes: 42,
   id: "exampleId",

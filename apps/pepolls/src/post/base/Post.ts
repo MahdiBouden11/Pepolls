@@ -15,9 +15,9 @@ import { Comment } from "../../comment/base/Comment";
 import {
   ValidateNested,
   IsOptional,
+  IsString,
   IsDate,
   IsInt,
-  IsString,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { User } from "../../user/base/User";
@@ -32,6 +32,17 @@ class Post {
   @Type(() => Comment)
   @IsOptional()
   comments?: Array<Comment>;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  content!: string | null;
 
   @ApiProperty({
     required: true,

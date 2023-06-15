@@ -67,6 +67,7 @@ export class PostControllerBase {
           : undefined,
       },
       select: {
+        content: true,
         createdAt: true,
         dislikes: true,
         id: true,
@@ -107,6 +108,7 @@ export class PostControllerBase {
     return this.service.findMany({
       ...args,
       select: {
+        content: true,
         createdAt: true,
         dislikes: true,
         id: true,
@@ -148,6 +150,7 @@ export class PostControllerBase {
     const result = await this.service.findOne({
       where: params,
       select: {
+        content: true,
         createdAt: true,
         dislikes: true,
         id: true,
@@ -212,6 +215,7 @@ export class PostControllerBase {
             : undefined,
         },
         select: {
+          content: true,
           createdAt: true,
           dislikes: true,
           id: true,
@@ -261,6 +265,7 @@ export class PostControllerBase {
       return await this.service.delete({
         where: params,
         select: {
+          content: true,
           createdAt: true,
           dislikes: true,
           id: true,

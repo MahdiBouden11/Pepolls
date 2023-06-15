@@ -6,10 +6,10 @@ import {
   EditProps,
   ReferenceArrayInput,
   SelectArrayInput,
+  TextInput,
   NumberInput,
   ReferenceInput,
   SelectInput,
-  TextInput,
 } from "react-admin";
 
 import { CommentTitle } from "../comment/CommentTitle";
@@ -27,6 +27,7 @@ export const PostEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={CommentTitle} />
         </ReferenceArrayInput>
+        <TextInput label="content" multiline source="content" />
         <NumberInput step={1} label="dislikes" source="dislikes" />
         <NumberInput step={1} label="likes" source="likes" />
         <ReferenceInput
